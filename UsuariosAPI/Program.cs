@@ -21,14 +21,16 @@ builder.Services.AddIdentity<Usuario, IdentityRole>()
     .AddEntityFrameworkStores<UsuarioDbContext>()
     .AddDefaultTokenProviders();
 
+builder.Services.AddAutoMapper(typeof(UsuarioProdile));
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddAutoMapper(typeof(UsuarioProdile));
 
 builder.Services.AddScoped<UsuarioService>();
+builder.Services.AddScoped<TokenService>();
 
 var app = builder.Build();
 
